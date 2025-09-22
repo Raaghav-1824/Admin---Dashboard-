@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useEffect} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import DashboardLayout from './layout/DashboardLayout'
