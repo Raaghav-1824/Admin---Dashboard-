@@ -18,7 +18,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-auto p-4 scrollbar-hide">{children}</main>
+        <main className="flex-1 overflow-auto scrollbar-hide">{children}</main>
       </div>
       {notificationOpen && (
         <div className="w-80 border-l bg-white" style={{ borderColor: 'var(--color-border-primary)', backgroundColor: 'var(--color-bg-primary)' }}>

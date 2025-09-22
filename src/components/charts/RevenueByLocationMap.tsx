@@ -7,7 +7,7 @@ const Card: React.FC<React.PropsWithChildren<{ className?: string; style?: React
   children,
   style
 }) => (
-  <div className={`card rounded-2xl px-6 ${className ?? ""}`} style={style}>
+  <div className={`card rounded-2xl p-6 space-y-4 ${className ?? ""}`} style={style}>
     {children}
   </div>
 );
@@ -17,7 +17,7 @@ const CardHeader: React.FC<React.PropsWithChildren<{ title?: string; subtitle?: 
   subtitle, 
   children 
 }) => (
-  <div className="py-4">
+  <div className="">
     {title && <div className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>{title}</div>}
     {subtitle && <div className="text-xs mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{subtitle}</div>}
     {children}
@@ -29,7 +29,7 @@ export const RevenueByLocationMap = () => {
     <Card className="md:col-span-4" style={{ backgroundColor: 'var(--color-brand-main)' }}>
       <CardHeader title="Revenue by Location" />
 
-      <div className="p-6 pt-4">
+      <div className="">
         <div className="h-40 w-full">
           <MapChart
             backgroundColor="var(--color-map-background)"
@@ -39,7 +39,7 @@ export const RevenueByLocationMap = () => {
         </div>
       </div>
 
-      <div className="px-6 pb-6 space-y-4">
+      <div className="space-y-4">
         {locationData.map((l) => (
           <div key={l.name} className="flex flex-col items-center gap-1">
             <div className="flex w-full items-center justify-between">

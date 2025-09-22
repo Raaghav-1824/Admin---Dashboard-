@@ -8,9 +8,9 @@ const Card: React.FC<React.PropsWithChildren<{ className?: string; style?: React
   children,
   style
 }) => (
-  <div className={`card rounded-2xl px-6 ${className ?? ""}`} style={style}>
-    {children}
-  </div>
+  <div className={`card rounded-2xl p-6 space-y-4 ${className ?? ""}`} style={style}>
+  {children}
+</div>
 );
 
 const CardHeader: React.FC<React.PropsWithChildren<{ title?: string; subtitle?: string }>> = ({ 
@@ -18,9 +18,9 @@ const CardHeader: React.FC<React.PropsWithChildren<{ title?: string; subtitle?: 
   subtitle, 
   children 
 }) => (
-  <div className="py-4">
+  <div className="">
     {title && <div className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>{title}</div>}
-    {subtitle && <div className="text-xs mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{subtitle}</div>}
+    {subtitle && <div className="text-xs" style={{ color: 'var(--color-text-muted)' }}>{subtitle}</div>}
     {children}
   </div>
 );
@@ -58,7 +58,7 @@ export const RevenueChart = () => {
         </div>
       </div>
 
-      <div className="h-80 px-2 sm:px-4 flex items-center justify-center pt-6">
+      <div className="h-80 sm:px-4 flex items-center justify-center">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={lineData} margin={{ left: -20, right: 10 }}>
             <XAxis

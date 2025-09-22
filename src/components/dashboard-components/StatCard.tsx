@@ -66,7 +66,7 @@ export const OptimizedStatCard = memo<StatCardProps>(({
 
   return (
     <div className={cn(statCardVariants({ variant, size }), className)}>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between">
         <h3 className="text-sm font-medium text-gray-600">{title}</h3>
       </div>
 

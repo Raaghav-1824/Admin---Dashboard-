@@ -8,7 +8,7 @@ const Card: React.FC<React.PropsWithChildren<{ className?: string; style?: React
   children,
   style
 }) => (
-  <div className={`card rounded-2xl px-6 ${className ?? ""}`} style={style}>
+  <div className={`card rounded-2xl p-6 space-y-4 ${className ?? ""}`} style={style}>
     {children}
   </div>
 );
@@ -18,7 +18,7 @@ const CardHeader: React.FC<React.PropsWithChildren<{ title?: string; subtitle?: 
   subtitle, 
   children 
 }) => (
-  <div className="py-4">
+  <div className="">
     {title && <div className="text-base font-semibold" style={{ color: 'var(--color-text-primary)' }}>{title}</div>}
     {subtitle && <div className="text-xs mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{subtitle}</div>}
     {children}
@@ -41,7 +41,8 @@ export const TotalSalesChart = () => {
                 cy="50%"
                 innerRadius={45}
                 outerRadius={68}
-                cornerRadius={30}
+                cornerRadius={20}  
+                paddingAngle={2}    
               >
                 {donutData.map((d) => (
                   <Cell key={d.name} fill={d.color} />
@@ -76,7 +77,7 @@ export const TotalSalesChart = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="py-6 px-5">
+        <div className="">
           {donutData.map((item) => (
             <div
               key={item.name}
