@@ -1,13 +1,376 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1C1C1C;
+  --color-primary-light: #6B7280;
+  --color-primary-muted: #1C1C1C33;
+  --color-primary-semi: #1C1C1C66;
+  --color-primary-overlay: #1C1C1CCC;
+  --color-primary-faded: #1C1C1C0D;
+  
+  /* Background Colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F9FB;
+  --color-bg-muted: #F8FAFC;
+  --color-bg-hover: #F3F4F6;
+  --color-bg-selected: #EFF6FF;
+  --color-bg-card: #F7F9FB;
+  
+  /* OrderList specific colors for light theme */
+  --color-order-button-bg: #F3F4F6;
+  --color-order-table-bg: #FFFFFF;
+  
+  /* Border Colors */
+  --color-border-primary: #E5E7EB;
+  --color-border-secondary: #D1D5DB;
+  --color-border-muted: #F3F4F6;
+  
+  /* Text Colors */
+  --color-text-primary: #1C1C1C;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-white: #FFFFFF;
+  --color-text-contrast: #000000;
+  
+  /* Brand Colors */
+  --color-brand-main: #F7F9FB;
+  --color-brand-light-blue: #B1E3FF;
+  --color-brand-gray-blue: #DCE3E8;
+  
+  /* Chart Colors */
+  --color-chart-grid: #F3F4F6;
+  --color-chart-axis: #9CA3AF;
+  --color-chart-line-primary: #111827;
+  --color-chart-line-secondary: #93C5FD;
+  --color-chart-fill-primary: #A8C5DA;
+  --color-chart-fill-secondary: #DCE3E8;
+  
+  /* Status Colors */
+  --color-status-success: #10B981;
+  --color-status-warning: #F59E0B;
+  --color-status-error: #EF4444;
+  --color-status-info: #3B82F6;
+  --color-status-purple: #8B5CF6;
+  --color-status-gray: #6B7280;
+  
+  /* Status Dot Colors */
+  --color-dot-success: #10B981;
+  --color-dot-warning: #F59E0B;
+  --color-dot-info: #3B82F6;
+  --color-dot-purple: #8B5CF6;
+  --color-dot-gray: #6B7280;
+  
+  /* Data Visualization Colors */
+  --color-data-direct: #1C1C1C;
+  --color-data-affiliate: #BAEDBD;
+  --color-data-sponsored: #95A4FC;
+  --color-data-email: #B1E3FF;
+  
+  /* Map Colors */
+  --color-map-background: #1C1C1C;
+  --color-map-land: #A8C5DA;
+  --color-map-border: #FFFFFF;
+  
+  /* Scrollbar Colors */
+  --color-scrollbar-track: #F1F5F9;
+  --color-scrollbar-thumb: #CBD5E1;
+  --color-scrollbar-hover: #94A3B8;
+  
+  /* Focus Colors */
+  --color-focus-ring: #3B82F6;
+  --color-focus-border: #1E40AF;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Dark Theme Variables */
+:root[data-theme="dark"] {
+  /* Primary Colors */
+  --color-primary: #F8FAFC;
+  --color-primary-light: #CBD5E1;
+  --color-primary-muted: #F8FAFC33;
+  --color-primary-semi: #F8FAFC66;
+  --color-primary-overlay: #1E293BCC;
+  --color-primary-faded: #F8FAFC0D;
+  
+  /* Background Colors */
+  --color-bg-primary: #0F172A;
+  --color-bg-secondary: #1E293B;
+  --color-bg-muted: #334155;
+  --color-bg-hover: #475569;
+  --color-bg-selected: #1E3A8A;
+  --color-bg-card: #1E293B;
+  
+  /* OrderList specific colors for dark theme */
+  --color-order-button-bg: #FFFFFF0D;
+  --color-order-table-bg: #FFFFFF0D;
+  
+  /* Border Colors */
+  --color-border-primary: #475569;
+  --color-border-secondary: #64748B;
+  --color-border-muted: #334155;
+  
+  /* Text Colors */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #94A3B8;
+  --color-text-white: #0F172A;
+  --color-text-contrast: #FFFFFF;
+  
+  /* Brand Colors - Slightly adjusted for dark mode */
+  --color-brand-main: #FFFFFF0D;
+  --color-brand-light-blue: #0E4B99;
+  --color-brand-gray-blue: #475569;
+  
+  /* Chart Colors - Dark mode friendly */
+  --color-chart-grid: #334155;
+  --color-chart-axis: #64748B;
+  --color-chart-line-primary: #F8FAFC;
+  --color-chart-line-secondary: #60A5FA;
+  --color-chart-fill-primary: #475569;
+  --color-chart-fill-secondary: #64748B;
+  
+  /* Map Colors - Dark mode */
+  --color-map-background: #F8FAFC;
+  --color-map-land: #475569;
+  --color-map-border: #0F172A;
+  
+  /* Scrollbar Colors - Dark mode */
+  --color-scrollbar-track: #1E293B;
+  --color-scrollbar-thumb: #475569;
+  --color-scrollbar-hover: #64748B;
+}
+
+/* Custom CSS utilities for enhanced UX */
+@layer components {
+  .card {
+    background-color: var(--color-bg-card);
+    border-color: var(--color-border-primary);
+    @apply border rounded-lg shadow-card transition-all duration-250 ease-smooth;
+  }
+  
+  .card:hover {
+    @apply shadow-card-hover;
+  }
+
+  /* Button variants using our design tokens */
+  .btn-primary {
+    background-color: var(--color-brand-main);
+    color: var(--color-text-primary);
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-250 ease-smooth focus:outline-none focus:ring-2;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-gray-blue);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border-secondary);
+    color: var(--color-text-secondary);
+    @apply px-4 py-2 border rounded-lg font-medium transition-all duration-250 ease-smooth focus:outline-none focus:ring-2;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-bg-hover);
+  }
+
+  /* Input styling for forms */
+  .input {
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border-secondary);
+    color: var(--color-text-primary);
+    @apply w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 transition-colors duration-200;
+  }
+
+  .input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .input:focus {
+    border-color: var(--color-focus-border);
+    --tw-ring-color: var(--color-focus-ring);
+  }
+
+  /* Grid layouts for consistent spacing */
+  .grid-dashboard {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-4;
+  }
+
+  .grid-stats {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+  }
+
+  /* Typography utilities */
+  .text-heading {
+    color: var(--color-text-primary);
+    @apply text-lg font-semibold;
+  }
+
+  .text-subheading {
+    color: var(--color-text-secondary);
+    @apply text-sm font-medium;
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+    @apply text-sm;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-smooth;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-smooth;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-bounce;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Dark mode support (if needed later) */
+@media (prefers-color-scheme: dark) {
+  .dark-mode {
+    --surface: #0f172a;
+    --surface-muted: #1e293b;
+    --surface-subtle: #334155;
+    --neutral-900: #f8fafc;
+    --neutral-600: #cbd5e1;
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-light-blue focus:ring-offset-2;
+}
+
+/* Sidebar styling utilities */
+.sidebar-section-header {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.sidebar-nav-item {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: var(--color-text-primary);
+}
+
+.sidebar-nav-subitem {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: var(--color-text-secondary);
+}
+
+/* Notification sidebar styling utilities */
+.notification-heading {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: var(--color-text-primary);
+  @apply py-2 px-1;
+}
+
+.notification-sidebar-text {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: var(--color-text-primary);
+}
+
+.notification-timestamp {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0%;
+  color: var(--color-primary-semi);
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scrollbar-hover);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
 }

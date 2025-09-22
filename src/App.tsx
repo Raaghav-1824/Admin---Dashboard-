@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import { useEffect} from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import DashboardLayout from './layout/DashboardLayout'
+import { Dashboard } from './pages/Dashboard'
+import { OrderList } from './components/dashboard-components/OrderList'
+import { useTheme } from './hooks/useTheme'
+import { useThemeStore } from './store/theme'
 
 function App() {
+  const { theme } = useThemeStore();
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  useTheme()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <DashboardLayout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/orders" element={<OrderList />} />
+          <Route path="/ecommerce" element={<Dashboard />} />
+          <Route path="/projects" element={<Dashboard />} />
+          <Route path="/courses" element={<Dashboard />} />
+          <Route path="/profile" element={<Dashboard />} />
+          <Route path="/overview" element={<Dashboard />} />
+          <Route path="/campaigns" element={<Dashboard />} />
+          <Route path="/documents" element={<Dashboard />} />
+          <Route path="/followers" element={<Dashboard />} />
+        </Routes>
+      </DashboardLayout>
+    </Router>
+  )
 }
 
-export default App;
+export default App
